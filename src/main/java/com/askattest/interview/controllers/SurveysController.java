@@ -1,5 +1,11 @@
 package com.askattest.interview.controllers;
 
-public class SurveysController {
-}
+import com.askattest.interview.repository.SurveyRepo;
 
+public class SurveysController {
+  public SurveyRepo surveys;
+
+  public SurveysController(SurveyRepo surveys) {
+      this.surveys = surveys;
+  }
+}

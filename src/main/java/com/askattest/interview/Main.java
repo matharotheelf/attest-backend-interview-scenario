@@ -16,7 +16,7 @@ public class Main {
         try {
             surveys = new SurveyRepo();
             responses = new ResponseRepo();
-            controller = new SurveysController(surveys, responses);
+            controller = new SurveysController(surveys.surveyById(200), responses);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

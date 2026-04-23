@@ -23,6 +23,10 @@ public class ResponseRepo {
         return this.responses.stream().filter(response -> response.respondent == respondentId && response.question == questionId).toList();
     }
 
+    public List<Response> responsesByQuestionList(List<Integer> questionIds) {
+        return this.responses.stream().filter(response -> questionIds.contains(response.question)).toList();
+    }
+
     public List<Response> listResponses() {
         return this.responses;
     }

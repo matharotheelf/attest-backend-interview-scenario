@@ -1,7 +1,7 @@
 package com.askattest.interview;
 
-import com.askattest.interview.aggregators.ResponseCountAggregator;
 import com.askattest.interview.aggregators.PayoutAggregator;
+import com.askattest.interview.aggregators.ResponseCountAggregator;
 import com.askattest.interview.repository.ResponseRepo;
 import com.askattest.interview.repository.SurveyRepo;
 import java.io.IOException;
@@ -18,7 +18,8 @@ public class Main {
     try {
       surveys = new SurveyRepo();
       responses = new ResponseRepo();
-      responseCountAggregator = new ResponseCountAggregator(surveys.surveyById(SURVEY_ID), responses);
+      responseCountAggregator =
+          new ResponseCountAggregator(surveys.surveyById(SURVEY_ID), responses);
       payoutAggregator = new PayoutAggregator(surveys.surveyById(SURVEY_ID), responses);
       surveyName = surveys.surveyById(SURVEY_ID).name;
     } catch (IOException e) {

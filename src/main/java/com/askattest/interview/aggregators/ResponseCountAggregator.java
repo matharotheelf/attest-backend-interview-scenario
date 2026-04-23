@@ -1,12 +1,11 @@
 package com.askattest.interview.aggregators;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 import com.askattest.interview.models.Response;
 import com.askattest.interview.models.Survey;
 import com.askattest.interview.repository.ResponseRepo;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ResponseCountAggregator {
   public Survey survey;

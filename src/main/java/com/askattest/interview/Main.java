@@ -13,18 +13,16 @@ public class Main {
         SurveyRepo surveys;
         ResponseRepo responses;
         SurveysController controller;
+        int SURVEY_ID = 200;
+
         try {
             surveys = new SurveyRepo();
             responses = new ResponseRepo();
-            controller = new SurveysController(surveys.surveyById(200), responses);
+            controller = new SurveysController(surveys.surveyById(SURVEY_ID), responses);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        Logger.getGlobal().log(Level.INFO, surveys.surveyById(200).toString());
-        Logger.getGlobal().log(Level.INFO, responses.responsesByRespondent(300).toString());
-        Logger.getGlobal().log(Level.INFO, controller.survey.toString());
-        Logger.getGlobal().log(Level.INFO, controller.responses.toString());
         Logger.getGlobal().log(Level.INFO, controller.questionCountGroupedByRespondant().toString());
         Logger.getGlobal().log(Level.INFO, controller.totalPayoutGroupedByRespondant().toString());
     }

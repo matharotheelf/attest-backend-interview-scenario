@@ -1,4 +1,5 @@
 package com.askattest.interview.models;
+import com.askattest.interview.models.Question;
 
 public class Response {
     public int respondent;

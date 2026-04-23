@@ -15,4 +15,8 @@ public class Survey {
     public List<Integer> question_ids() {
         return questions.stream().map(question -> question.id).toList();
     }
+
+    public Question questionById(int questionId) {
+        return questions.stream().filter(question -> question.id == questionId).findFirst().get();
+    }
 }

@@ -14,17 +14,19 @@ public class Main {
         ResponseRepo responses;
         SurveysController controller;
         int SURVEY_ID = 200;
+        String surveyName;
 
         try {
             surveys = new SurveyRepo();
             responses = new ResponseRepo();
             controller = new SurveysController(surveys.surveyById(SURVEY_ID), responses);
+            surveyName = surveys.surveyById(SURVEY_ID).name;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         System.out.println("Here is the data related to the respondants and their survey responses."); 
-        System.out.println(String.format("This data is related to Survey ID: %1$s.", SURVEY_ID)); 
+        System.out.println(String.format("This data is related to Survey: %1$s.", surveyName)); 
         System.out.println();
         System.out.println();
 

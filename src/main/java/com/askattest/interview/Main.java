@@ -26,5 +26,6 @@ public class Main {
         Logger.getGlobal().log(Level.INFO, controller.survey.toString());
         Logger.getGlobal().log(Level.INFO, controller.responses.toString());
         Logger.getGlobal().log(Level.INFO, controller.questionCountGroupedByRespondant().toString());
+        Logger.getGlobal().log(Level.INFO, controller.totalPayoutGroupedByRespondant().toString());
     }
 }

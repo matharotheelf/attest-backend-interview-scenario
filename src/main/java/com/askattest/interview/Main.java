@@ -11,12 +11,14 @@ public class Main {
     SurveyRepo surveys;
     ResponseRepo responses;
     SurveysController controller;
+    ResponseCountAggregator responseCountAggregator;
     int SURVEY_ID = 200;
     String surveyName;
 
     try {
       surveys = new SurveyRepo();
       responses = new ResponseRepo();
+      responseCountAggregator = new ResponseCountAggregator(surveys.surveyById(SURVEY_ID), responses);
       controller = new SurveysController(surveys.surveyById(SURVEY_ID), responses);
       surveyName = surveys.surveyById(SURVEY_ID).name;
     } catch (IOException e) {
@@ -29,7 +31,7 @@ public class Main {
     System.out.println();
 
     System.out.println("Question response count by respondant.");
-    for (var entry : controller.questionCountGroupedByRespondant().entrySet()) {
+    for (var entry : responseCountAggregator.questionCountGroupedByRespondant().entrySet()) {
       System.out.println(
           String.format(
               "Respondant: %1$s, question count: %2$s", entry.getKey(), entry.getValue()));

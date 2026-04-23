@@ -12,6 +12,12 @@ public class PayoutAggregator {
   public Survey survey;
   public List<Response> responses;
 
+  public PayoutAggregator(Survey survey, ResponseRepo responseRepo) {
+    this.survey = survey;
+    this.responses = responseRepo.responsesByQuestionSet(survey.questionIds());
+    ;
+  }
+
   private List<Question> questionsFromResponses(List<Response> responseList) {
     return responseList.stream().map(response -> survey.questionById(response.question)).toList();
   }

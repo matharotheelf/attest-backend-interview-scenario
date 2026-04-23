@@ -23,6 +23,13 @@ public class Main {
             throw new RuntimeException(e);
         }
 
+        System.out.println("Here is the data related to the respondants and their survey responses."); 
+        System.out.println(String.format("This data is related to Survey ID: %1$s.", SURVEY_ID)); 
+        System.out.println("Question response count by respondant.");
+        for (var entry : controller.questionCountGroupedByRespondant().entrySet()) {
+            System.out.println(String.format("Respondant: %1$s, question count: %2$s", entry.getKey(), entry.getValue()));
+        }
+    
         Logger.getGlobal().log(Level.INFO, controller.questionCountGroupedByRespondant().toString());
         Logger.getGlobal().log(Level.INFO, controller.totalPayoutGroupedByRespondant().toString());
     }

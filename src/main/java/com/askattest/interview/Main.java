@@ -1,5 +1,6 @@
 package com.askattest.interview;
 
+import com.askattest.interview.aggregators.ResponseCountAggregator;
 import com.askattest.interview.controllers.SurveysController;
 import com.askattest.interview.repository.ResponseRepo;
 import com.askattest.interview.repository.SurveyRepo;

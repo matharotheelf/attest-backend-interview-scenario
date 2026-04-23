@@ -15,7 +15,7 @@ public class SurveysController {
 
   public SurveysController(Survey survey, ResponseRepo responseRepo) {
       this.survey = survey;
-      this.responses = responseRepo.responsesByQuestionSet(survey.question_ids());;
+      this.responses = responseRepo.responsesByQuestionSet(survey.questionIds());;
   }
 
   public Map<Integer, Long> questionCountGroupedByRespondant() {

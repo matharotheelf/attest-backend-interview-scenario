@@ -12,7 +12,7 @@ public class Survey {
         return String.format("Survey ID: %d | Name: %s | Question Count: %d", id, name, questions.size());
     }
 
-    public List<Integer> question_ids() {
+    public List<Integer> questionIds() {
         return questions.stream().map(question -> question.id).toList();
     }
 

@@ -25,5 +25,6 @@ public class Main {
         Logger.getGlobal().log(Level.INFO, responses.responsesByRespondent(300).toString());
         Logger.getGlobal().log(Level.INFO, controller.survey.toString());
         Logger.getGlobal().log(Level.INFO, controller.responses.toString());
+        Logger.getGlobal().log(Level.INFO, controller.questionCountGroupedByRespondant().toString());
     }
 }

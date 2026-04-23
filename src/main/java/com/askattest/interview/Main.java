@@ -4,6 +4,7 @@ import com.askattest.interview.aggregators.PayoutAggregator;
 import com.askattest.interview.aggregators.ResponseCountAggregator;
 import com.askattest.interview.repository.ResponseRepo;
 import com.askattest.interview.repository.SurveyRepo;
+import com.askattest.interview.models.Survey;
 import java.io.IOException;
 
 public class Main {
@@ -13,21 +14,21 @@ public class Main {
     ResponseCountAggregator responseCountAggregator;
     PayoutAggregator payoutAggregator;
     int SURVEY_ID = 200;
-    String surveyName;
+    Survey survey;
 
     try {
       surveys = new SurveyRepo();
+      survey = surveys.surveyById(SURVEY_ID);
       responses = new ResponseRepo();
       responseCountAggregator =
-          new ResponseCountAggregator(surveys.surveyById(SURVEY_ID), responses);
-      payoutAggregator = new PayoutAggregator(surveys.surveyById(SURVEY_ID), responses);
-      surveyName = surveys.surveyById(SURVEY_ID).name;
+          new ResponseCountAggregator(survey, responses);
+      payoutAggregator = new PayoutAggregator(survey, responses);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
 
     System.out.println("Here is the data related to the respondants and their survey responses.");
-    System.out.println(String.format("This data is related to Survey: %1$s.", surveyName));
+    System.out.println(String.format("This data is related to Survey: %1$s.", survey.name));
     System.out.println();
     System.out.println();
 
